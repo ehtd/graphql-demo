@@ -1,6 +1,8 @@
 const _ = require('lodash');
 
 const { ApolloServer } = require('apollo-server');
+const responseCachePlugin = require('apollo-server-plugin-response-cache');
+
 const typeDefs = require('./typeDefs');
 const book = require('./resolvers/book');
 const story = require('./resolvers/story');
@@ -30,6 +32,9 @@ const server = new ApolloServer({
             hnAPI: new HackerNewsAPI(),
         };
     },
+    plugins: [
+        responseCachePlugin()
+    ],
 });
 
 server.listen().then(({ url }) => {

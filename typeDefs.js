@@ -8,10 +8,10 @@ const typeDefs = gql`
     rating: Int
   }
  
-  type Story {
+  type Story @cacheControl(maxAge: 240) {
     id: ID
     by: String
-    kids: [String]
+    kids: [ID]
     score: Int
     text: String
     time: String
