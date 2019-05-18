@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:start": "nodemon -w ./src -w ./index.js -V --delay 2.5 index.js"
+    "dev:start": "nodemon -V --delay 2.5 index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "nodemon": "^1.19.0"
   },
   "dependencies": {
+    "apollo-datasource-rest": "^0.4.0",
     "apollo-server": "^2.5.0",
     "graphql": "^14.3.0",
     "lodash": "^4.17.11"
