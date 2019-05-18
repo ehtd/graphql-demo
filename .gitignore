@@ -1,0 +1,9 @@
+.DS_Store
+node_modules
+
+# vscode https://code.visualstudio.com/
+.vscode/*
+typings/*
+typings.json
+
+.idea/**

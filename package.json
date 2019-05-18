@@ -1,0 +1,28 @@
+{
+  "name": "graphql-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:start": "nodemon -w ./src -w ./index.js -V --delay 2.5 index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehtd/graphql-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ehtd/graphql-demo/issues"
+  },
+  "homepage": "https://github.com/ehtd/graphql-demo#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "apollo-server": "^2.5.0",
+    "graphql": "^14.3.0",
+    "lodash": "^4.17.11"
+  }
+}
