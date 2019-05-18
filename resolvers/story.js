@@ -1,6 +1,6 @@
 const resolvers = {
 
-    topIds: ( parent, args , { dataSources }) => {
+    topIds: ( parent, args, { dataSources }) => {
         return dataSources.hnAPI.getTopIds();
     },
 
@@ -8,9 +8,13 @@ const resolvers = {
         return dataSources.hnAPI.getStory(id);
     },
 
-    topStories: async ( parent, { id } , { dataSources }) => {
+    comment: ( parent, { id }, { dataSources }) => {
+        return dataSources.hnAPI.getComment(id);
+    },
+
+    topStories: async ( parent, { id }, { dataSources }) => {
         const ids = await dataSources.hnAPI.getTopIds();
-        return ids.slice(0,10).map((id) => dataSources.hnAPI.getStory(id));
+        return ids.slice(0,1).map((id) => dataSources.hnAPI.getStory(id));
     },
 };
 

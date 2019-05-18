@@ -18,7 +18,14 @@ const Query = _.merge(
     story,
 );
 
-const resolvers = { Query };
+const resolvers = {
+    Query,
+    Story: {
+        kids: async( parent, args , { dataSources }) => {
+            return parent.kids.map(id => dataSources.hnAPI.getComment(id));
+        },
+    }
+};
 
 console.log(resolvers);
 

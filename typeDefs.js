@@ -11,11 +11,21 @@ const typeDefs = gql`
   type Story @cacheControl(maxAge: 240) {
     id: ID
     by: String
-    kids: [ID]
+    kids: [Comment]
     score: Int
     text: String
     time: String
     title: String
+    type: String
+  }
+  
+  type Comment @cacheControl(maxAge: 0) {
+    id: ID
+    by: String
+    kids: [ID]
+    parent: ID
+    text: String
+    time: String
     type: String
   }
   
@@ -25,9 +35,12 @@ const typeDefs = gql`
     book(id: ID): Book
     topStories: [Story]
     story(id: ID): Story
+    comment(id: ID): Comment
     topIds: [ID]
     hello: String
   }
 `;
 
 module.exports = typeDefs;
+
+

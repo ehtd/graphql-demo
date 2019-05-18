@@ -13,6 +13,11 @@ class HackerNewsAPI extends RESTDataSource {
     getStory(id) {
         return this.get(`item/${id}.json`)
     }
+
+    getComment(id) {
+        return this.get(`item/${id}.json`)
+    }
 }
 
 module.exports = HackerNewsAPI;
+
