@@ -30,7 +30,7 @@ const resolvers = { Query };
 
 console.log(resolvers);
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers, debug: true });
 
 server.listen().then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
