@@ -3,11 +3,18 @@ const _ = require('lodash');
 const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./typeDefs');
 const book = require('./resolvers/book');
-const BooksAPI = require('./datasources/BooksAPI');
+const story = require('./resolvers/story');
 
-const Query = _.merge({
-    hello: () => 'Hello world'
-}, book);
+const BooksAPI = require('./datasources/BooksAPI');
+const HackerNewsAPI = require('./datasources/HackerNewsAPI');
+
+const Query = _.merge(
+    {
+        hello: () => 'Hello world'
+    },
+    book,
+    story,
+);
 
 const resolvers = { Query };
 
@@ -20,6 +27,7 @@ const server = new ApolloServer({
     dataSources: () => {
         return {
             booksAPI: new BooksAPI(),
+            hnAPI: new HackerNewsAPI(),
         };
     },
 });
