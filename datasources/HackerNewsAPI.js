@@ -10,12 +10,15 @@ class HackerNewsAPI extends RESTDataSource {
         return this.get('topstories.json');
     }
 
+    getItem(id) {
+        return this.get(`item/${id}.json`);
+    }
     getStory(id) {
-        return this.get(`item/${id}.json`)
+        return this.getItem(id);
     }
 
     getComment(id) {
-        return this.get(`item/${id}.json`)
+        return this.getItem(id);
     }
 }
 

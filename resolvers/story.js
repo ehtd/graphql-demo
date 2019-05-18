@@ -12,9 +12,10 @@ const resolvers = {
         return dataSources.hnAPI.getComment(id);
     },
 
-    topStories: async ( parent, { id }, { dataSources }) => {
+    topStories: async ( parent, { max }, { dataSources }) => {
+        const end = max || 5;
         const ids = await dataSources.hnAPI.getTopIds();
-        return ids.slice(0,1).map((id) => dataSources.hnAPI.getStory(id));
+        return ids.slice(0,end).map((id) => dataSources.hnAPI.getStory(id));
     },
 };
 

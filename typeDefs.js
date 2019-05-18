@@ -33,7 +33,7 @@ const typeDefs = gql`
   type Query {
     books: [Book]
     book(id: ID): Book
-    topStories: [Story]
+    topStories(max: Int): [Story]
     story(id: ID): Story
     comment(id: ID): Comment
     topIds: [ID]
