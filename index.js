@@ -21,8 +21,17 @@ const Query = _.merge(
 const resolvers = {
     Query,
     Story: {
-        kids: async( parent, args , { dataSources }) => {
-            return parent.kids.map(id => dataSources.hnAPI.getComment(id));
+        kids: async( parent, args, { dataSources }) => {
+            if (!!parent.kids) {
+                return parent.kids.map(id => dataSources.hnAPI.getComment(id));
+            }
+            return [];
+        },
+        commentCount: async( parent) => {
+            if (!!parent.kids) {
+                return parent.kids.length
+            }
+            return 0;
         },
     }
 };

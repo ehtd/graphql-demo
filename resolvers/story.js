@@ -13,7 +13,7 @@ const resolvers = {
     },
 
     topStories: async ( parent, { max }, { dataSources }) => {
-        const end = max || 5;
+        const end = max || 25;
         const ids = await dataSources.hnAPI.getTopIds();
         return ids.slice(0,end).map((id) => dataSources.hnAPI.getStory(id));
     },
